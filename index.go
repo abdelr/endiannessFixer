@@ -34,6 +34,9 @@ func main() {
 		oldKey := make([]byte, 8)
 		copy(oldKey, k)
 
+		valueCopy := make([]byte, len(v))
+		copy(valueCopy, v)
+
 		id := binary.BigEndian.Uint64(k)
 
 		if id == 0 {
@@ -50,7 +53,7 @@ func main() {
 				oldKey []byte
 				newKey []byte
 				value  []byte
-			}{oldKey, littleEndianBytes, v})
+			}{oldKey, littleEndianBytes, valueCopy})
 
 		} else {
 			littleEndian++
